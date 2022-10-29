@@ -37,6 +37,7 @@ int InterfazBusqueda();
 void FiltroSalario();
 void FiltroStack();
 void FiltroIngles();
+void FiltroSeniority();
 //otras
 string aMayusculas(string s);
 bool ExisteElegido(int _dni, int IdBusquedaActiva);

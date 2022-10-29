@@ -246,6 +246,7 @@ void FiltroIngles(){
     string msj="Ingrese Nivel de Ingles buscado:      ";
     Alerta(msj,false,true);
     rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 -5,15);
+    cin.ignore();
     getline(cin,_ingles);
     _ingles=aMayusculas(_ingles);
 
@@ -284,6 +285,59 @@ void FiltroIngles(){
     }
     //Libera la memoria
     delete[] favs;
+
+}
+
+
+void FiltroSeniority(){
+
+    ArchivoFavoritos archivofavs;
+    string _seniority;
+    string msj = "Ingrese el Seniority actual deseado:      ";
+    Alerta(msj,false,true);
+    rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 - 4,15);
+    cin.ignore();
+    getline(cin,_seniority);
+    aMayusculas(_seniority);
+
+    int tam = archivofavs.getCantidad();
+
+    Favoritos *favs = new Favoritos[tam];
+
+    archivofavs.leerTodos(favs,tam);
+
+    bool coincidencias=false;
+
+    for(int i=0; i<tam; i++){
+        if(favs[i].getSeniority()==_seniority){
+            coincidencias = true;
+            break;
+        }
+    }
+
+    if(coincidencias){
+
+        archivofavs.vaciar();
+
+        for(int i=0; i<tam; i++){
+
+            if(favs[i].getSeniority()==_seniority){
+
+                archivofavs.guardar(favs[i]);
+            }
+
+        }
+
+        msj="Coincidencias encontradas, ver 'Favoritos' ";
+        Alerta(msj,true,true);
+    }
+    else{
+        msj="No se hallaron coincidencias, no hay nuevos favoritos ";
+        Alerta(msj,true,true);
+    }
+
+    delete[] favs;
+
 
 }
 
@@ -535,7 +589,7 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
             cout<<"1 - Filtrar por Salario pretendido"<<endl;
             cout<<"2 - Filtrar por Stack"<<endl;
             cout<<"3 - Filtrar por Nivel de Ingles"<<endl;
-            cout<<"4 - Filtrar por..."<<endl;
+            cout<<"4 - Filtrar por Seniority actual"<<endl;
             cout<<"5 - Filtrar por..."<<endl;
             cout<<"6 - Filtrar por..."<<endl;
             cout<<"7 - Filtrar por..."<<endl;
@@ -559,9 +613,16 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
                 break;
 
             case '3':
-
+                {
+                    FiltroIngles();
+                }
                 break;
 
+            case '4':
+                {
+                    FiltroSeniority();
+                }
+                break;
 
             case '0':
                 {

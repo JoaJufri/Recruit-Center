@@ -57,12 +57,12 @@ int main()
 
     ///INICIO PROGRAMA
 
-    PantallaInicio();
+    //PantallaInicio();
     MenuPpal();
 
     ///PRUEBA DE FILTROS
     //FiltroStack();
     //FiltroIngles();
-
+    //FiltroSeniority();
 }
 
