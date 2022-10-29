@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Prototipo" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Prototipo" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Prototipo" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="ArchivoBusquedas.cpp" />
+		<Unit filename="ArchivoBusquedas.h" />
+		<Unit filename="ArchivoCandidatos.cpp" />
+		<Unit filename="ArchivoCandidatos.h" />
+		<Unit filename="ArchivoElegidos.cpp" />
+		<Unit filename="ArchivoElegidos.h" />
+		<Unit filename="ArchivoFavoritos.cpp" />
+		<Unit filename="ArchivoFavoritos.h" />
+		<Unit filename="ArchivoRecruiter.cpp" />
+		<Unit filename="ArchivoRecruiter.h" />
+		<Unit filename="Busqueda.cpp" />
+		<Unit filename="Busqueda.h" />
+		<Unit filename="Candidato.cpp" />
+		<Unit filename="Candidato.h" />
+		<Unit filename="Empresa.cpp" />
+		<Unit filename="Empresa.h" />
+		<Unit filename="EmpresaTrabajada.cpp" />
+		<Unit filename="EmpresaTrabajada.h" />
+		<Unit filename="Favoritos.cpp" />
+		<Unit filename="Favoritos.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Recruiter.cpp" />
+		<Unit filename="Recruiter.h" />
+		<Unit filename="Ubicacion.cpp" />
+		<Unit filename="Ubicacion.h" />
+		<Unit filename="funciones.cpp" />
+		<Unit filename="funciones.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="rlutil.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
