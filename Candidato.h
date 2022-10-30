@@ -45,6 +45,7 @@ public:
     string getNivelIngles();
     long int getTelefono();
     EmpresaTrabajada *getEmpresasTrabajadas();
+    void getEmpresasTrabajadas(EmpresaTrabajada vec[]);
     string getSeniority();
     void getStackString(string vec[]);
     void CopiarStack(char stck[][tam_stack]);

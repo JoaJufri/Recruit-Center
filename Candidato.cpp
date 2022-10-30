@@ -62,6 +62,15 @@ long int Candidato::getTelefono(){return telefono;}
 
 EmpresaTrabajada *Candidato::getEmpresasTrabajadas(){return vEmpresas;}
 
+///Recibe un array de 3 empresas y lo carga
+void Candidato::getEmpresasTrabajadas(EmpresaTrabajada vec[]){
+
+    for(int i=0; i<3; i++){
+
+        vec[i]=vEmpresas[i];
+    }
+}
+
 string Candidato::getSeniority(){return seniority;}
 
 

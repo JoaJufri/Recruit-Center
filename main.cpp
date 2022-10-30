@@ -60,9 +60,11 @@ int main()
     //PantallaInicio();
     MenuPpal();
 
+
     ///PRUEBA DE FILTROS
     //FiltroStack();
     //FiltroIngles();
     //FiltroSeniority();
+    //FiltroExperiencia();
 }
 

@@ -2,7 +2,7 @@
 #define FUNCIONES_H_INCLUDED
 
 #include "Recruiter.h"
-
+#include "Fecha.h"
 const int ANCHO_VENTANA = 120;
 const int ALTO_VENTANA = 30;
 
@@ -38,7 +38,9 @@ void FiltroSalario();
 void FiltroStack();
 void FiltroIngles();
 void FiltroSeniority();
+void FiltroExperiencia();
 //otras
+int CalcularAniosExp(Fecha ingreso, Fecha egreso);
 string aMayusculas(string s);
 bool ExisteElegido(int _dni, int IdBusquedaActiva);
 void MostrarBusquedasDisponibles(int _id);

@@ -100,9 +100,7 @@ string aMayusculas(string s){
 
 void FiltroSalario(){
 
-    //system("cls");
     ArchivoFavoritos archFavoritos;
-
 
     float salario;
     string msj="Ingrese salario maximo deseado:         ";
@@ -152,7 +150,7 @@ void FiltroSalario(){
         msj="No se hallaron coincidencias, no hay nuevos favoritos";
         Alerta(msj,true,true);
     }
-        system("pause");
+
     delete[] vFavoritos;
 
 }
@@ -298,7 +296,7 @@ void FiltroSeniority(){
     rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 - 4,15);
     cin.ignore();
     getline(cin,_seniority);
-    aMayusculas(_seniority);
+    _seniority=aMayusculas(_seniority);
 
     int tam = archivofavs.getCantidad();
 
@@ -338,6 +336,103 @@ void FiltroSeniority(){
 
     delete[] favs;
 
+
+}
+
+
+int CalcularAniosExp(Fecha ingreso, Fecha egreso){
+
+
+    int anios_transcurridos = egreso.getAnio() - ingreso.getAnio();
+    if(anios_transcurridos==0) return 0;
+
+    int total_dias=0;
+
+    int diasxanioEgreso = ( (egreso.getMes()-1)*30 + egreso.getDia() );
+    int diasxanioIngreso = 365 - ( (ingreso.getMes()-1)*30+ingreso.getDia() );
+    total_dias += diasxanioIngreso+diasxanioEgreso;
+
+    int anioing = ingreso.getAnio();
+    int anioegr = egreso.getAnio();
+
+    for(int i=anioing+1; i<anioegr; i++){
+
+        total_dias += 365;
+
+    }
+    total_dias/=365;
+    return total_dias;
+}
+
+/// BORRADOR DE FUNCION INCOMPLETA
+void FiltroExperiencia(){
+
+    ArchivoFavoritos archFavoritos;
+
+    int exp=0;
+    int anios;
+    string msj="Ingrese años de experiencia buscados:  ";
+    Alerta(msj,false,true);
+    rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 ,15);
+    cin>>anios;
+
+    int tam=archFavoritos.getCantidad();
+
+    Favoritos *favs = new Favoritos[tam];
+
+    archFavoritos.leerTodos(favs,tam);
+    bool coincidencias = false;
+
+    for(int i=0; i<tam; i++){
+        EmpresaTrabajada vExperiencias[3];
+        favs[i].getEmpresasTrabajadas(vExperiencias);
+        exp=0;
+        for(int j=0; j<3; j++){
+
+            Fecha Fingreso=vExperiencias[i].getFechasIngreso();
+            Fecha Fegreso = vExperiencias[i].getFechaEgreso();
+            if(vExperiencias[i].getEstado()){
+                exp+=CalcularAniosExp(Fingreso,Fegreso);
+            }
+        }
+            if(exp>=anios){
+                coincidencias=true;
+                break;
+            }
+    }
+
+    if(coincidencias){
+
+        archFavoritos.vaciar();
+        for(int i=0; i<tam; i++){
+        EmpresaTrabajada vExperiencias[3];
+        favs[i].getEmpresasTrabajadas(vExperiencias);
+        exp=0;
+
+            for(int j=0; j<3; j++){
+
+                Fecha Fingreso=vExperiencias[i].getFechasIngreso();
+                Fecha Fegreso = vExperiencias[i].getFechaEgreso();
+                if(vExperiencias[i].getEstado()){
+                    exp+=CalcularAniosExp(Fingreso,Fegreso);
+                }
+            }
+
+            if(exp>=anios){
+
+                archFavoritos.guardar(favs[i]);
+            }
+        }
+
+        msj="Coincidencias encontradas, ver 'Favoritos' ";
+        Alerta(msj,true,true);
+    }
+    else{
+        msj="No se encontraron coincidencias, no hay nuevos favoritos";
+        Alerta(msj,true,true);
+    }
+
+    delete[] favs;
 
 }
 
@@ -590,7 +685,7 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
             cout<<"2 - Filtrar por Stack"<<endl;
             cout<<"3 - Filtrar por Nivel de Ingles"<<endl;
             cout<<"4 - Filtrar por Seniority actual"<<endl;
-            cout<<"5 - Filtrar por..."<<endl;
+            cout<<"5 - Filtrar por Experiencia Total"<<endl;
             cout<<"6 - Filtrar por..."<<endl;
             cout<<"7 - Filtrar por..."<<endl;
             cout<<"0 - Volver a Seleccion"<<endl;
@@ -621,6 +716,12 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
             case '4':
                 {
                     FiltroSeniority();
+                }
+                break;
+
+            case '5':
+                {
+                    FiltroExperiencia();
                 }
                 break;
 
