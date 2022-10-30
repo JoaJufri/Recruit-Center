@@ -339,7 +339,7 @@ void FiltroSeniority(){
 
 }
 
-
+///Funcion auxiliar para Filtro experiencia
 int CalcularAniosExp(Fecha ingreso, Fecha egreso){
 
 
@@ -355,7 +355,8 @@ int CalcularAniosExp(Fecha ingreso, Fecha egreso){
     int anioing = ingreso.getAnio();
     int anioegr = egreso.getAnio();
 
-    for(int i=anioing+1; i<anioegr; i++){
+    int x = anioing+1;
+    for(int i=x; i<anioegr; i++){
 
         total_dias += 365;
 
@@ -364,7 +365,7 @@ int CalcularAniosExp(Fecha ingreso, Fecha egreso){
     return total_dias;
 }
 
-/// BORRADOR DE FUNCION INCOMPLETA
+
 void FiltroExperiencia(){
 
     ArchivoFavoritos archFavoritos;
@@ -389,9 +390,9 @@ void FiltroExperiencia(){
         exp=0;
         for(int j=0; j<3; j++){
 
-            Fecha Fingreso=vExperiencias[i].getFechasIngreso();
-            Fecha Fegreso = vExperiencias[i].getFechaEgreso();
-            if(vExperiencias[i].getEstado()){
+            Fecha Fingreso=vExperiencias[j].getFechasIngreso();
+            Fecha Fegreso = vExperiencias[j].getFechaEgreso();
+            if(vExperiencias[j].getEstado()){
                 exp+=CalcularAniosExp(Fingreso,Fegreso);
             }
         }
@@ -411,10 +412,10 @@ void FiltroExperiencia(){
 
             for(int j=0; j<3; j++){
 
-                Fecha Fingreso=vExperiencias[i].getFechasIngreso();
-                Fecha Fegreso = vExperiencias[i].getFechaEgreso();
-                if(vExperiencias[i].getEstado()){
-                    exp+=CalcularAniosExp(Fingreso,Fegreso);
+                Fecha ingreso=vExperiencias[j].getFechasIngreso();
+                Fecha egreso = vExperiencias[j].getFechaEgreso();
+                if(vExperiencias[j].getEstado()){
+                    exp+=CalcularAniosExp(ingreso,egreso);
                 }
             }
 
@@ -436,7 +437,11 @@ void FiltroExperiencia(){
 
 }
 
-//MENUS
+
+
+
+
+///MENUS
 
 //BUSQUEDAS - MENU
 
