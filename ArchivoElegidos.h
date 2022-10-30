@@ -17,7 +17,6 @@ public:
     bool vaciar();
     bool leerTodos(Favoritos *vec, int tam);
 
-
 };
 
 #endif // ARCHIVOELEGIDOS_H_INCLUDED

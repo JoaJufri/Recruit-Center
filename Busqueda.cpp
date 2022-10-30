@@ -150,14 +150,15 @@ void Busqueda::Cargar(){
     strcpy(seniority,aux.c_str());
 
     activa=true;
-    cout<<endl<<"========================================================"<<endl;
+    cout<<endl;
+    cout<<"====================================="<<endl;
 
 }
 
 void Busqueda::Mostrar(){
 
     cout<<"Busqueda #"<<id<<endl;
-    cout<<"-------------------"<<endl;
+    cout<<"============="<<endl;
     cout<<"ID del Recruiter: "<<idRecruiter<<endl;
     cout<<"Salario Ofrecido: "<<oferta_salarial<<endl;
     cout<<"Trabajo Remoto: ";
@@ -170,5 +171,5 @@ void Busqueda::Mostrar(){
     MostrarStack();
     cout<<"Anios de Experiencia: "<<aniosExp<<endl;
     cout<<"Seniority deseado: "<<seniority<<endl;
-    cout<<"====================================="<<endl;
+    Separador('=');
 }

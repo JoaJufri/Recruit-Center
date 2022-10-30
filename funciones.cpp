@@ -39,6 +39,14 @@ void DivisorHorizontal(int y, char figura){
     cout<<endl;
 }
 
+void Separador(char simbolo){
+
+    for(int i=0; i<ANCHO_VENTANA; i++){
+        cout<<simbolo;
+    }
+    cout<<endl;
+}
+
 void cartelPixel(int posx, int posy, int ancho, int alto) {
 
         for (int i = posx; i < posx + ancho; i++) {
@@ -94,6 +102,64 @@ string aMayusculas(string s){
         s[i] = toupper(s[i]);
     }
     return s;
+}
+
+
+void MostrarElegidos(int IDRecruiter){
+
+    ArchivoBusquedas archB;
+    int tamB = archB.getCantidad();
+
+    Busqueda *vbusquedas = new Busqueda[tamB];
+
+    for(int i=0; i<tamB; i++){
+
+        vbusquedas[i]=archB.leer(i);
+    }
+
+    ArchivoElegidos archE;
+    int tamE = archE.getCantidad();
+
+    Favoritos *velegidos = new Favoritos[tamE];
+    archE.leerTodos(velegidos,tamE);
+
+    bool hay_registro=false;
+    ArchivoRecruiter archR;
+    Recruiter UsuarioAct;
+
+    for(int i=0; i<tamB; i++){
+
+        if(vbusquedas[i].getActiva()==false && vbusquedas[i].getIDRecruiter()==IDRecruiter){
+            hay_registro=true;
+            int busqueda = vbusquedas[i].getID();
+            Separador('=');
+            cout<<"BUSQUEDA # "<<busqueda<<endl;
+            int pos = archR.buscar(IDRecruiter);
+            UsuarioAct=archR.leer(pos);
+            cout<<"RECRUITER: "<<UsuarioAct.getApellido()<<" "<<UsuarioAct.getNombre()<<endl;
+            Separador('=');
+            cout<<"Candidatos Seleccionados: "<<endl;
+            for(int j=0; j<tamE; j++){
+
+                if(velegidos[j].getIdBusqueda()==busqueda){
+
+                    velegidos[j].Mostrar();
+                    Separador('*');
+
+                }
+            }
+        }
+    }
+    if(hay_registro){
+        system("pause");
+    }
+    else{
+        string msj = "NO HAY BUSQUEDAS FINALIZADAS PARA EL USUARIO LOGEADO";
+        Alerta(msj,true,true);
+    }
+
+    delete[] vbusquedas;
+    delete[] velegidos;
 }
 
 // FILTROS ----------------------------------------------------------------------------------------------
@@ -539,6 +605,9 @@ int InterfazBusqueda(){
     return opcion_elegida;
 }
 
+
+///////////////////// **** MENU SELECCION DE BUSQUEDA  *** ////////////////////////////////////////////////////////
+
 void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
 
     bool on=true;
@@ -550,7 +619,7 @@ void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
         //system("cls");
 
         op=InterfazBusqueda();
-
+        string msj;
         switch(op){
 
         case 1:
@@ -589,18 +658,17 @@ void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
                         busqueda=archivoB.leer(pos);
                         if(busqueda.getIDRecruiter()==usuario.getID()){
                             IdBusquedaActiva=busqueda.getID();
-                            cout<<"Busqueda Activada correctamente"<<endl;
+                            msj="Busqueda Activada correctamente";
+                            Alerta(msj,true,true);
                         }
                         else{
-                            system("cls");
-                            cout<<"La Busqueda ingresada no coincide con el Recruiter logeado"<<endl;
-                            system("pause");
+                            msj="La Busqueda ingresada no coincide con el Recruiter logeado";
+                            Alerta(msj,true,true);
                         }
                     }
                     else{
-                        system("cls");
-                        cout<<"La busqueda ingresada no existe! "<<endl;
-                        system("pause");
+                        msj="La busqueda ingresada no existe! ";
+                        Alerta(msj,true,true);
                     }
                 }
             }
@@ -639,7 +707,7 @@ bool ExisteElegido(int _dni, int IdBusquedaActiva){
 }
 
 
-////////////////////// *** MENU FILTROS** /////////////////////////
+/////////////////////////////////// *** MENU FILTROS** /////////////////////////////////////////////////
 
 void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
 
@@ -685,18 +753,54 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
         char op;
         while(on){
             system("cls");
+            int x = 10;
+            int x2=0;
+            string msj="1 - Filtrar por Salario pretendido";
+            int largo = msj.length();
+            rlutil::locate(x,6);
+            cout<<msj;
+            cartelPixel(x-1,5,largo+1,2);
+            msj="2 - Filtrar por Stack";
+            largo = msj.length();
+            rlutil::locate(x,10);
+            cout<<msj;
+            cartelPixel(x-1,9,largo+1,2);
+            msj="3 - Filtrar por Nivel de Ingles";
+            largo = msj.length();
+            rlutil::locate(x,14);
+            cout<<msj;
+            cartelPixel(x-1,13,largo+1,2);
+            msj="4 - Filtrar por Seniority actual";
+            x2= 70;
+            largo = msj.length();
+            rlutil::locate(x2,6);
+            cout<<msj;
+            cartelPixel(x2-1,5,largo+1,2);
+            msj="5 - Filtrar por Experiencia Total";
+            largo = msj.length();
+            rlutil::locate(x2,10);
+            cout<<msj;
+            cartelPixel(x2-1,9,largo+1,2);
 
-            cout<<"1 - Filtrar por Salario pretendido"<<endl;
-            cout<<"2 - Filtrar por Stack"<<endl;
-            cout<<"3 - Filtrar por Nivel de Ingles"<<endl;
-            cout<<"4 - Filtrar por Seniority actual"<<endl;
-            cout<<"5 - Filtrar por Experiencia Total"<<endl;
+            /*
             cout<<"6 - Filtrar por..."<<endl;
             cout<<"7 - Filtrar por..."<<endl;
-            cout<<"0 - Volver a Seleccion"<<endl;
+            */
 
-            cout<<"Elegir opcion: ";
+            msj="0 - Volver a Seleccion ";
+            largo = msj.length();
+            rlutil::locate(ANCHO_VENTANA/2 - largo/2,22);
+            cout<<msj;
+            cartelPixel(ANCHO_VENTANA/2 - largo/2 -1 ,21,largo,2);
+
+            msj="Elegir opcion:  ";
+            largo = msj.length();
+            rlutil::locate(ANCHO_VENTANA/2 - largo/2,27);
+            cout<<msj;
+            rlutil::showcursor();
+            rlutil::locate(ANCHO_VENTANA/2 + largo/2,27);
             cin>>op;
+            rlutil::hidecursor();
 
             switch(op){
 
@@ -745,7 +849,7 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
 }
 
 
-/////////////****Menu Seleccion de Personal (filtros/canidatos/favoritos/Envio de Candidatos/Atras)****//////////////////////////////////
+/////////////**** Menu Seleccion de Personal ***** (filtros/canidatos/favoritos/Envio de Candidatos/Atras)****//////////////////////////////////
 
 void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
 
@@ -755,16 +859,57 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
 
     while(on==true && IdBusquedaActiva!=-1){
 
-        system("cls");
-        cout<<"1 - Lista de Candidatos"<<endl;
-        cout<<"2 - Filtros"<<endl;
-        cout<<"3 - Favoritos"<<endl;
-        cout<<"4 - Envio de Candidatos"<<endl;
-        cout<<"0 - Atras"<<endl;
+        rlutil::cls();
 
-        cout<<"Elija una opcion: ";
+        Logo(1,6);
+        Logo(95,6);
+
+        string msj="1 - Lista de Candidatos";
+        int largo = msj.length();
+        int x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 6);
+        cout<<msj;
+        cartelPixel(x-1,5,largo+1,2);
+
+        msj="2 - Filtros";
+        largo = msj.length();
+        x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 10);
+        cout<<msj;
+        cartelPixel(x-1,9,largo+1,2);
+
+        msj="3 - Favoritos";
+        largo=msj.length();
+        x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 14);
+        cout<<msj;
+        cartelPixel(x-1,13,largo+1,2);
+
+        msj="4 - Envio de Candidatos";
+        largo = msj.length();
+        x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 18);
+        cout<<msj;
+        cartelPixel(x-1,17,largo+1,2);
+
+        msj="0 - Atras";
+        largo=msj.length();
+        x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 22);
+        cout<<msj;
+        cartelPixel(x-1,21,largo+1,2);
+
+        msj="Elija una opcion:   ";
+        largo=msj.length();
+        x = ANCHO_VENTANA/2 - largo/2;
+        rlutil::locate(x, 26);
+        cout<<msj;
+
+        x = ANCHO_VENTANA/2 + largo/2;
+        rlutil::showcursor();
+        rlutil::locate(x-2, 26);
         cin>>op;
-
+        rlutil::hidecursor();
         switch(op){
 
         case '1':
@@ -776,11 +921,13 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
                 Candidato *candidatos = new Candidato[tam];
 
                 archivoC.leerTodos(candidatos,tam);
-
+                Separador('-');
+                Separador('=');
+                Separador('-');
                 for(int i=0; i<tam; i++){
 
                     candidatos[i].Mostrar();
-                    cout<<"============================================================"<<endl;
+                    Separador('=');
                 }
                 system("pause");
                 delete[] candidatos;
@@ -863,9 +1010,8 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
 
                             //Compruebo si existe el candidato en el archivo final para esta busqueda (no debe repetirse un candidato para la misma busqueda)
                             if(ExisteElegido(_dni,IdBusquedaActiva)){
-                                cout<<endl<<"El candidato ingresado ya ha sido enviado a la Busqueda Activa"<<endl;
-                                system("pause");
-
+                                msj="ERROR, El candidato ingresado ya ha sido enviado a la Busqueda Activa";
+                                Alerta(msj,true,true);
                             }
                             else{
                                 //Si existe y no esta repetido para la busqueda, lo guardo en el archivo Elegidos.Dat
@@ -874,6 +1020,8 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
                                 elegido.setIdBusqueda(IdBusquedaActiva);
                                 elegido.setIdRecruiter(usuario.getID());
                                 archivoElegidos.guardar(elegido);
+                                msj="Candidato Enviado con exito";
+                                Alerta(msj,true,true);
                             }
 
                         }
@@ -898,8 +1046,9 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
 
                         int pos = archivoB.buscar(IdBusquedaActiva);
                         busqueda = archivoB.leer(pos);
-                        ///Desactivo la busqueda activa
+                        ///Desactivo la busqueda activa y actualizo el archivo
                         busqueda.setActiva(false);
+                        archivoB.Modificar(busqueda,pos);
 
                         ///Cambio la bandera de busqueda activa, ahora el usuario tiene que activar otra ( si tiene )
                         IdBusquedaActiva = -1;
@@ -1042,12 +1191,20 @@ void MenuSeleccion(Recruiter usuario,int &IdBusquedaActiva){
                 MenuSelecPersonal(usuario, IdBusquedaActiva);
             }
             break;
-
+            //304568215 y 27548692
         case 3:
             {
                 rlutil::cls();
-                cout<<"Mostrar archivo de Busquedas Finalizadas (Elegidos) "<<endl;
-                system("pause");
+                ArchivoElegidos archelegidos;
+                int tam = archelegidos.getCantidad();
+                if(tam>0){
+
+                    MostrarElegidos(usuario.getID());
+                }
+                else{
+                    string msj = "No Hay Busquedas finalizadas";
+                    Alerta(msj,true,true);
+                }
             }
             break;
 

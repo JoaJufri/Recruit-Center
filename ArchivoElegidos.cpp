@@ -89,3 +89,11 @@ int ArchivoElegidos::buscar(int _dni){
 
     return -1;
 }
+
+
+
+
+
+
+
+

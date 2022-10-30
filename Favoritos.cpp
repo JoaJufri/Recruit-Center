@@ -13,3 +13,4 @@ void Favoritos::Mostrar(){
 
     Candidato::Mostrar();
 }
+

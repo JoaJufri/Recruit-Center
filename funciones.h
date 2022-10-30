@@ -14,6 +14,7 @@ void Logo(int posicionX, int posicionY);
 void cargarCadena(char *pal, int tam);
 void DivisorHorizontal(int y, char figura);
 void cartelPixel(int posx,int posy,int ancho, int alto);
+void Separador(char simbolo);
 void Alerta(string alerta,bool pausa, bool cls);
 
 
@@ -44,4 +45,5 @@ int CalcularAniosExp(Fecha ingreso, Fecha egreso);
 string aMayusculas(string s);
 bool ExisteElegido(int _dni, int IdBusquedaActiva);
 void MostrarBusquedasDisponibles(int _id);
+void MostrarElegidos(int IDRecruiter);
 #endif // FUNCIONES_H_INCLUDED
