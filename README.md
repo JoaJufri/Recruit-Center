@@ -4,11 +4,11 @@ Proyecto de Sistema de gestión de Archivos con POO para Laboratorio de Computac
 
 # LEER :
 
-# **Datos de usuario para logearse:**
-------
+**Datos de usuario para logearse: **
+
 1. ID : 123
    PASSWORD: amy123
------
+
 2. ID: 456
    PASSWORD: raj1
    

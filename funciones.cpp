@@ -782,23 +782,30 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
             cout<<msj;
             cartelPixel(x2-1,9,largo+1,2);
 
-            /*
-            cout<<"6 - Filtrar por..."<<endl;
-            cout<<"7 - Filtrar por..."<<endl;
-            */
+            msj="6 - Filtrar por Ubicacion";
+            largo = msj.length();
+            rlutil::locate(x2,14);
+            cout<<msj;
+            cartelPixel(x2-1,13,largo+1,2);
 
-            msj="0 - Volver a Seleccion ";
+            msj="7 - Borrar Filtros aplicados";
             largo = msj.length();
             rlutil::locate(ANCHO_VENTANA/2 - largo/2,22);
             cout<<msj;
-            cartelPixel(ANCHO_VENTANA/2 - largo/2 -1 ,21,largo,2);
+            cartelPixel(ANCHO_VENTANA/2 - largo/2-1,21,largo+1,2);
+
+            msj="0 - Volver a Seleccion ";
+            largo = msj.length();
+            rlutil::locate(ANCHO_VENTANA/2 - largo/2,26);
+            cout<<msj;
+            cartelPixel(ANCHO_VENTANA/2 - largo/2 -1 ,25,largo,2);
 
             msj="Elegir opcion:  ";
             largo = msj.length();
-            rlutil::locate(ANCHO_VENTANA/2 - largo/2,27);
+            rlutil::locate(ANCHO_VENTANA/2 - largo/2,29);
             cout<<msj;
             rlutil::showcursor();
-            rlutil::locate(ANCHO_VENTANA/2 + largo/2,27);
+            rlutil::locate(ANCHO_VENTANA/2 + largo/2,29);
             cin>>op;
             rlutil::hidecursor();
 
@@ -831,6 +838,20 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
             case '5':
                 {
                     FiltroExperiencia();
+                }
+                break;
+
+            case '6':
+                {
+                    //FiltroUbicacion();
+                }
+                break;
+
+            case '7':
+                {
+                    archivoFav.vaciar();
+                    msj="Filtros borrados correctamente, se vacio el archivo de favoritos.";
+                    Alerta(msj,true,true);
                 }
                 break;
 

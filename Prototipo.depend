@@ -133,7 +133,7 @@
 	<iostream>
 	"ArchivoBusquedas.h"
 
-1667167551 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
+1667174615 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
 	<iostream>
 	"funciones.h"
 	"rlutil.h"
@@ -288,6 +288,149 @@
 	"Recruiter.h"
 
 1667061734 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\ubicacion.cpp
+	<iostream>
+	<cstring>
+	"Ubicacion.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\archivobusquedas.cpp
+	<iostream>
+	"ArchivoBusquedas.h"
+
+1667061734 c:\users\pczartech\desktop\backup\archivobusquedas.h
+	"Busqueda.h"
+
+1667061734 c:\users\pczartech\desktop\backup\busqueda.h
+	<iostream>
+	<cstring>
+	"funciones.h"
+
+1667159779 c:\users\pczartech\desktop\backup\funciones.h
+	"Recruiter.h"
+	"Fecha.h"
+
+1667061734 c:\users\pczartech\desktop\backup\recruiter.h
+	<iostream>
+
+1667061734 c:\users\pczartech\desktop\backup\fecha.h
+
+1667061734 source:c:\users\pczartech\desktop\backup\archivocandidatos.cpp
+	<cstring>
+	"ArchivoCandidatos.h"
+
+1667061734 c:\users\pczartech\desktop\backup\archivocandidatos.h
+	<iostream>
+	"Candidato.h"
+
+1667078796 c:\users\pczartech\desktop\backup\candidato.h
+	<cstring>
+	"funciones.h"
+	"EmpresaTrabajada.h"
+
+1667061734 c:\users\pczartech\desktop\backup\empresatrabajada.h
+	"Empresa.h"
+	"Fecha.h"
+
+1667061734 c:\users\pczartech\desktop\backup\empresa.h
+	<iostream>
+	"Ubicacion.h"
+
+1667061734 c:\users\pczartech\desktop\backup\ubicacion.h
+	<iostream>
+
+1667157057 source:c:\users\pczartech\desktop\backup\archivoelegidos.cpp
+	<iostream>
+	"ArchivoElegidos.h"
+
+1667157057 c:\users\pczartech\desktop\backup\archivoelegidos.h
+	"Favoritos.h"
+
+1667153966 c:\users\pczartech\desktop\backup\favoritos.h
+	"Candidato.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\archivofavoritos.cpp
+	<iostream>
+	"ArchivoFavoritos.h"
+
+1667061734 c:\users\pczartech\desktop\backup\archivofavoritos.h
+	"Favoritos.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\archivorecruiter.cpp
+	<iostream>
+	<cstring>
+	"ArchivoRecruiter.h"
+
+1667061734 c:\users\pczartech\desktop\backup\archivorecruiter.h
+	"Recruiter.h"
+
+1667162202 source:c:\users\pczartech\desktop\backup\busqueda.cpp
+	<iostream>
+	<cstring>
+	"Busqueda.h"
+
+1667079300 source:c:\users\pczartech\desktop\backup\candidato.cpp
+	<iostream>
+	<cstring>
+	"funciones.h"
+	"Candidato.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\empresa.cpp
+	<iostream>
+	<cstring>
+	"Empresa.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\empresatrabajada.cpp
+	<iostream>
+	<cstring>
+	"EmpresaTrabajada.h"
+
+1667153966 source:c:\users\pczartech\desktop\backup\favoritos.cpp
+	"Favoritos.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\fecha.cpp
+	<iostream>
+	"Fecha.h"
+
+1667174615 source:c:\users\pczartech\desktop\backup\funciones.cpp
+	<iostream>
+	"funciones.h"
+	"rlutil.h"
+	"ArchivoBusquedas.h"
+	"ArchivoCandidatos.h"
+	"ArchivoRecruiter.h"
+	"ArchivoFavoritos.h"
+	"ArchivoElegidos.h"
+
+1667061734 c:\users\pczartech\desktop\backup\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1667164576 source:c:\users\pczartech\desktop\backup\main.cpp
+	<iostream>
+	<cstring>
+	"funciones.h"
+	"rlutil.h"
+	"ArchivoBusquedas.h"
+	"ArchivoCandidatos.h"
+	"EmpresaTrabajada.h"
+	"ArchivoRecruiter.h"
+	"ArchivoFavoritos.h"
+	"ArchivoElegidos.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\recruiter.cpp
+	<cstring>
+	"Recruiter.h"
+
+1667061734 source:c:\users\pczartech\desktop\backup\ubicacion.cpp
 	<iostream>
 	<cstring>
 	"Ubicacion.h"
