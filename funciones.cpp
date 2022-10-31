@@ -650,8 +650,13 @@ void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
                     int _id;
                     ArchivoBusquedas archivoB;
                     Busqueda busqueda;
-                    cout<<"Ingrese ID de busqueda a Activar: ";
+                    msj="Ingrese ID de busqueda a Activar:    ";
+                    int largo = msj.length();
+                    Alerta(msj,false,true);
+                    rlutil::showcursor();
+                    rlutil::locate(ANCHO_VENTANA/2 + largo/2-2,15);
                     cin>>_id;
+                    rlutil::hidecursor();
                     int pos=archivoB.buscar(_id);
                     if(pos!=-1){
 
@@ -981,7 +986,7 @@ void MenuSelecPersonal(Recruiter usuario, int& IdBusquedaActiva){
                     for(int i=0; i<cant; i++){
 
                         favoritos[i].Mostrar();
-                        cout<<"====================================================="<<endl;
+                        Separador('=');
                     }
                     system("pause");
                     delete[] favoritos;
