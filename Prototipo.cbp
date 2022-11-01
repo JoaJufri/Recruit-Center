@@ -38,6 +38,8 @@
 		<Unit filename="ArchivoCandidatos.h" />
 		<Unit filename="ArchivoElegidos.cpp" />
 		<Unit filename="ArchivoElegidos.h" />
+		<Unit filename="ArchivoEmpresas.cpp" />
+		<Unit filename="ArchivoEmpresas.h" />
 		<Unit filename="ArchivoFavoritos.cpp" />
 		<Unit filename="ArchivoFavoritos.h" />
 		<Unit filename="ArchivoRecruiter.cpp" />

@@ -43,7 +43,7 @@ int ArchivoElegidos::getCantidad(){
 
     FILE *p;
     p=fopen("Elegidos.dat","rb");
-    if(p==nullptr){return false;}
+    if(p==nullptr){return 0;}
 
     fseek(p,0,SEEK_END);
 

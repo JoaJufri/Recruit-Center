@@ -857,6 +857,8 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
                     archivoFav.vaciar();
                     msj="Filtros borrados correctamente, se vacio el archivo de favoritos.";
                     Alerta(msj,true,true);
+                    //Lo saco para que vuelva a cargar los favoritos con todos los candidatos
+                    on = false;
                 }
                 break;
 

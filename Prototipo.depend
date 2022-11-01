@@ -29,7 +29,7 @@
 
 1667061734 c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\fecha.h
 
-1667061734 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivofavoritos.cpp
+1667334410 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivofavoritos.cpp
 	<iostream>
 	"ArchivoFavoritos.h"
 
@@ -83,13 +83,14 @@
 	<iostream>
 	"Fecha.h"
 
-1667164576 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
+1667336603 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
 	<iostream>
 	<cstring>
 	"funciones.h"
 	"rlutil.h"
 	"ArchivoBusquedas.h"
 	"ArchivoCandidatos.h"
+	"ArchivoEmpresas.h"
 	"EmpresaTrabajada.h"
 	"ArchivoRecruiter.h"
 	"ArchivoFavoritos.h"
@@ -133,7 +134,7 @@
 	<iostream>
 	"ArchivoBusquedas.h"
 
-1667174615 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
+1667329338 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
 	<iostream>
 	"funciones.h"
 	"rlutil.h"
@@ -143,7 +144,7 @@
 	"ArchivoFavoritos.h"
 	"ArchivoElegidos.h"
 
-1667157057 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivoelegidos.cpp
+1667334484 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivoelegidos.cpp
 	<iostream>
 	"ArchivoElegidos.h"
 
@@ -434,4 +435,11 @@
 	<iostream>
 	<cstring>
 	"Ubicacion.h"
+
+1667336534 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivoempresas.cpp
+	"funciones.h"
+	"ArchivoEmpresas.h"
+
+1667335941 c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\archivoempresas.h
+	"Empresa.h"
 
