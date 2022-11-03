@@ -405,6 +405,40 @@ void FiltroSeniority(){
 
 }
 
+///Funcion para dar de alta un candidato (no permite dar de alta un dni existente en el archivo)
+bool AltaCandidato(){
+
+    system("cls");
+    ArchivoCandidatos archivo;
+    Candidato candidato;
+    int _dni;
+    char op='S';
+    bool ok=false;
+
+    while(toupper(op)=='S'){
+        system("cls");
+        cout<<"Ingrese dni: ";
+        cin>>_dni;
+        if(archivo.buscar(_dni)>=0){
+
+            cout<<endl<<"Candidato existente, reintentar ? S/N: ";
+            cin>>op;
+
+        }
+        else{
+            op='N';
+            candidato.Cargar(_dni);
+            ok = archivo.guardar(candidato);
+
+        }
+
+
+    }
+    return ok;
+}
+
+
+
 ///Funcion auxiliar para Filtro experiencia
 int CalcularAniosExp(Fecha ingreso, Fecha egreso){
 

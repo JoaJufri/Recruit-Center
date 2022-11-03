@@ -11,6 +11,7 @@ class Busqueda {
 
 private:
     int id;
+    char codigo_cliente[5];
     int idRecruiter;
     float oferta_salarial;
     bool remoto;
@@ -28,6 +29,7 @@ public:
     void setActiva(bool act);
     int getID();
     int getIDRecruiter();
+    string getCodigoCliente();
     float getOfertaSalarial();
     bool getRemoto();
     string getNivelIngles();

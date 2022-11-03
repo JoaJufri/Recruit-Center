@@ -16,26 +16,13 @@ using namespace std;
 
 
 
+
 int main()
 {
     rlutil::setBackgroundColor(rlutil::BLUE);
     rlutil::cls();
 
 
-
-    rlutil::cls();
-
-    //CARGA BUSQUEDAS
-    /*
-    ArchivoBusquedas archivo;
-    Busqueda busqueda;
-
-    busqueda.Cargar();
-    archivo.guardar(busqueda);
-    system("cls");
-
-    rlutil::anykey();
-    */
     //Carga Recruiters
     /*
     ArchivoRecruiter archivo;
@@ -45,13 +32,23 @@ int main()
     archivo.guardar(recruiter);
     rlutil::cls();
     */
-    //Carga Candidatos
+    /////////////////////////Carga Candidatos/////////////////////////////////////
+
     /*
     ArchivoCandidatos archivo;
     Candidato candidato;
 
-    candidato.Cargar();
-    archivo.guardar(candidato);
+
+    char otro='S';
+    while(AltaCandidato() && toupper(otro)=='S'){
+
+        int tam = archivo.getCantidad();
+        candidato = archivo.leer(tam-1);
+        candidato.Mostrar();
+        cout<<endl<<"Otro ? S/N : ";
+        cin>>otro;
+    }
+
     */
 
 
@@ -60,7 +57,7 @@ int main()
     //PantallaInicio();
     //MenuPpal();
 
-    Empresa cliente;
+  /*  Empresa cliente;
     ArchivoEmpresas archivo;
 
 
@@ -71,6 +68,8 @@ int main()
         cliente.Mostrar();
         cout<<"========================================"<<endl;
     }
+ */
+
 
     ///PRUEBA DE FILTROS
     //FiltroStack();

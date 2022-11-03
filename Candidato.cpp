@@ -178,6 +178,73 @@ void Candidato::Cargar(){
 }
 
 
+void Candidato::Cargar(int _dni){
+
+    if(_dni!=-1){
+        dni=_dni;
+    }
+    else{
+        cout<<"DNI: ";
+        cin>>dni;
+    }
+    cin.ignore();
+    string aux;
+    cout<<endl<<"Nombre: ";
+    getline(cin,aux);
+    strcpy(nombre,aux.c_str());
+
+    cout<<endl<<"Apellido: ";
+    getline(cin,aux);
+    strcpy(apellido,aux.c_str());
+
+
+    cout<<endl<<"Mail: ";
+    getline(cin,aux);
+    strcpy(mail,aux.c_str());
+
+
+    cout<<endl<<"Telefono: ";
+    cin>>telefono;
+
+    cin.ignore();
+    cout<<endl<<"Seniority: ";
+    getline(cin,aux);
+    strcpy(seniority,aux.c_str());
+    cout<<endl;
+
+    cout<<"Nivel de ingles: ";
+    getline(cin,aux);
+    strcpy(nivel_ingles,aux.c_str());
+
+    cout<<"Salario pretendido: ";
+    cin>>salarioPretendido;
+
+    cin.ignore();
+    cout<<endl<<"Ubicacion: "<<endl;
+    ubicacion.Cargar();
+
+    //OPCIONAL : HACER FUNCION PRIVADA EN CLASE CANDIDATO PARA ESTO. EJ : void CargaExperiencia()
+    char opcion;
+
+    for(int i=0; i<3; i++){
+
+        cout<<endl<<"Desea Cargar una Empresa? S/N : ";
+        cin>>opcion;
+        if(toupper(opcion)=='S'){
+            cin.ignore();
+            vEmpresas[i].EmpresaTrabajada::Cargar();
+        }
+        else{
+            i=3;
+        }
+    }
+
+    //Carga por teclado Matriz de Stack
+    CargaDeStack();
+
+}
+
+
 
 void Candidato::Mostrar(){
 

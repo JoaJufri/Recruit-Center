@@ -23,7 +23,7 @@ string Busqueda::getNivelIngles(){return nivel_ingles;}
 
 string Busqueda::getSeniority(){return seniority;}
 
-
+string Busqueda::getCodigoCliente(){return codigo_cliente;}
 
 void Busqueda::cargarCadenaStack(int pos){
 
@@ -118,6 +118,13 @@ void Busqueda::Cargar(){
     cout<<endl<<"ID del Recruiter: ";
     cin>>idRecruiter;
 
+    cin.ignore();
+    cout<<endl<<"COD CLIENTE: ";
+    string aux;
+    getline(cin,aux);
+    aux=aMayusculas(aux);
+    strcpy(codigo_cliente,aux.c_str());
+
     cout<<endl<<"Oferta salarial: $";
     cin>>oferta_salarial;
 
@@ -131,7 +138,6 @@ void Busqueda::Cargar(){
 
     cout<<endl;
 
-    string aux;
     cin.ignore();
     cout<<"Nivel de Ingles: ";
     getline(cin,aux);
@@ -151,7 +157,7 @@ void Busqueda::Cargar(){
 
     activa=true;
     cout<<endl;
-    cout<<"====================================="<<endl;
+    cout<<"========================================================"<<endl;
 
 }
 
@@ -160,6 +166,7 @@ void Busqueda::Mostrar(){
     cout<<"Busqueda #"<<id<<endl;
     cout<<"============="<<endl;
     cout<<"ID del Recruiter: "<<idRecruiter<<endl;
+    cout<<"Codigo de Empresa del Cliente: "<<codigo_cliente<<endl;
     cout<<"Salario Ofrecido: "<<oferta_salarial<<endl;
     cout<<"Trabajo Remoto: ";
     if(remoto){

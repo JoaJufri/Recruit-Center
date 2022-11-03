@@ -53,6 +53,7 @@ public:
     Ubicacion getUbicacion();
     float getSalarioPretendido();
     void Cargar();
+    void Cargar(int _dni=-1);
     void Mostrar();
 
 };

@@ -41,6 +41,7 @@ void FiltroIngles();
 void FiltroSeniority();
 void FiltroExperiencia();
 //otras
+bool AltaCandidato();
 int CalcularAniosExp(Fecha ingreso, Fecha egreso);
 string aMayusculas(string s);
 bool ExisteElegido(int _dni, int IdBusquedaActiva);
