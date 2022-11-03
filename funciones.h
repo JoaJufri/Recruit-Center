@@ -3,6 +3,7 @@
 
 #include "Recruiter.h"
 #include "Fecha.h"
+
 const int ANCHO_VENTANA = 120;
 const int ALTO_VENTANA = 30;
 
@@ -40,6 +41,7 @@ void FiltroStack();
 void FiltroIngles();
 void FiltroSeniority();
 void FiltroExperiencia();
+void FiltroUbicacion();
 //otras
 bool AltaCandidato();
 int CalcularAniosExp(Fecha ingreso, Fecha egreso);

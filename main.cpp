@@ -3,19 +3,6 @@
 using namespace std;
 #include "funciones.h"
 #include "rlutil.h"
-#include "ArchivoBusquedas.h"
-#include "ArchivoCandidatos.h"
-#include "ArchivoEmpresas.h"
-#include "EmpresaTrabajada.h"
-#include "ArchivoRecruiter.h"
-#include "ArchivoFavoritos.h"
-#include "ArchivoElegidos.h"
-
-
-
-
-
-
 
 int main()
 {
@@ -55,20 +42,8 @@ int main()
     ///INICIO PROGRAMA
 
     //PantallaInicio();
-    //MenuPpal();
+    MenuPpal();
 
-  /*  Empresa cliente;
-    ArchivoEmpresas archivo;
-
-
-
-    int tam = archivo.getCantidad();
-    for(int i=0; i<tam; i++){
-        cliente = archivo.leer(i);
-        cliente.Mostrar();
-        cout<<"========================================"<<endl;
-    }
- */
 
 
     ///PRUEBA DE FILTROS

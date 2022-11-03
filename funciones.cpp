@@ -3,12 +3,13 @@
 #include "rlutil.h"
 
 //Revisar estos includes
-
 #include "ArchivoBusquedas.h"
 #include "ArchivoCandidatos.h"
 #include "ArchivoRecruiter.h"
 #include "ArchivoFavoritos.h"
 #include "ArchivoElegidos.h"
+#include "ArchivoEmpresas.h"
+#include "EmpresaTrabajada.h"
 using namespace std;
 
 
@@ -132,11 +133,17 @@ void MostrarElegidos(int IDRecruiter){
         if(vbusquedas[i].getActiva()==false && vbusquedas[i].getIDRecruiter()==IDRecruiter){
             hay_registro=true;
             int busqueda = vbusquedas[i].getID();
+            string CodigoCliente = vbusquedas[i].getCodigoCliente();
+            ArchivoEmpresas archivoEmpresas;
+            Empresa cliente;
+            int x=archivoEmpresas.buscar(CodigoCliente);
+            cliente=archivoEmpresas.leer(x);
             Separador('=');
             cout<<"BUSQUEDA # "<<busqueda<<endl;
             int pos = archR.buscar(IDRecruiter);
             UsuarioAct=archR.leer(pos);
             cout<<"RECRUITER: "<<UsuarioAct.getApellido()<<" "<<UsuarioAct.getNombre()<<endl;
+            cout<<"CLIENTE : "<<cliente.getNombre()<<endl;
             Separador('=');
             cout<<"Candidatos Seleccionados: "<<endl;
             for(int j=0; j<tamE; j++){
@@ -438,7 +445,6 @@ bool AltaCandidato(){
 }
 
 
-
 ///Funcion auxiliar para Filtro experiencia
 int CalcularAniosExp(Fecha ingreso, Fecha egreso){
 
@@ -538,7 +544,44 @@ void FiltroExperiencia(){
 }
 
 
+void FiltroUbicacion(){
+    ArchivoFavoritos archFavoritos;
+    string prov;
+    string msj="Ingrese Provincia buscada:                      ";
+    Alerta(msj,false,true);
+    rlutil::locate(ANCHO_VENTANA/2+msj.length()/2 - 20,15);
+    cin.ignore();
+    getline(cin,prov);
 
+    prov=aMayusculas(prov);
+    int tam = archFavoritos.getCantidad();
+    Favoritos *favs = new Favoritos[tam];
+    archFavoritos.leerTodos(favs,tam);
+    bool coincidencias = false;
+    for(int i=0; i<tam; i++){
+        if(favs[i].getUbicacion().getProvincia()==prov){
+            coincidencias=true;
+            break;
+        }
+    }
+
+    if(coincidencias){
+
+        archFavoritos.vaciar();
+        for(int i=0; i<tam; i++){
+            if(favs[i].getUbicacion().getProvincia()==prov){
+                archFavoritos.guardar(favs[i]);
+            }
+        }
+        msj="Coincidencias encontradas, ver 'Favoritos' ";
+        Alerta(msj,true,true);
+    }
+    else{
+        msj="No se hallaron coincidencias, no hay nuevos Favoritos.";
+        Alerta(msj,true,true);
+    }
+    delete[] favs;
+}
 
 
 ///MENUS
@@ -567,7 +610,7 @@ void MostrarBusquedasDisponibles(int _id){
 int InterfazBusqueda(){
 
    rlutil::setBackgroundColor(rlutil::BLACK);
-   rlutil::setColor(rlutil::BLUE);
+   rlutil::setColor(rlutil::CYAN);
    rlutil::cls();
    rlutil::hidecursor();
 
@@ -649,8 +692,6 @@ void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
 
 
     while(on){
-
-        //system("cls");
 
         op=InterfazBusqueda();
         string msj;
@@ -882,7 +923,7 @@ void MenuFiltros(Recruiter usuario,int& IdBusquedaActiva){
 
             case '6':
                 {
-                    //FiltroUbicacion();
+                    FiltroUbicacion();
                 }
                 break;
 
