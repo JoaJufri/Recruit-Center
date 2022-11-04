@@ -12,7 +12,7 @@
 	"funciones.h"
 	"EmpresaTrabajada.h"
 
-1667512518 c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.h
+1667517281 c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.h
 	"Recruiter.h"
 	"Fecha.h"
 
@@ -83,7 +83,7 @@
 	<iostream>
 	"Fecha.h"
 
-1667513335 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
+1667518823 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
 	<iostream>
 	<cstring>
 	"funciones.h"
@@ -127,7 +127,7 @@
 	<iostream>
 	"ArchivoBusquedas.h"
 
-1667512549 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
+1667517416 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
 	<iostream>
 	"funciones.h"
 	"rlutil.h"

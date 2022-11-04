@@ -45,6 +45,7 @@ void FiltroUbicacion();
 //otras
 bool AltaCandidato();
 int CalcularAniosExp(Fecha ingreso, Fecha egreso);
+int JerarquiaNivelIngles(string nivelIngles);
 string aMayusculas(string s);
 bool ExisteElegido(int _dni, int IdBusquedaActiva);
 void MostrarBusquedasDisponibles(int _id);

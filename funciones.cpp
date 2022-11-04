@@ -105,6 +105,23 @@ string aMayusculas(string s){
     return s;
 }
 
+int JerarquiaNivelIngles(string nivelIngles){
+        nivelIngles=aMayusculas(nivelIngles);
+        char Niveles[6][2]={ {'A','1'},{'A','2'},{'B','1'},{'B','2'},{'C','1'},{'C','2'} };
+
+        for(int i=0; i<6; i++){
+            string aux;
+            for(int j=0; j<2; j++){
+
+                aux+=Niveles[i][j];
+            }
+            if(aux==nivelIngles){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
 void MostrarElegidos(int IDRecruiter){
 
@@ -311,6 +328,7 @@ void FiltroStack(){
 
 void FiltroIngles(){
 
+
     ArchivoFavoritos archFavoritos;
 
     string _ingles;
@@ -319,8 +337,10 @@ void FiltroIngles(){
     rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 -5,15);
     cin.ignore();
     getline(cin,_ingles);
-    _ingles=aMayusculas(_ingles);
 
+
+    int nivel_ingresado = JerarquiaNivelIngles(_ingles);
+    int nivel_actual;
     int tam = archFavoritos.getCantidad();
 
     Favoritos *favs = new Favoritos[tam];
@@ -329,7 +349,8 @@ void FiltroIngles(){
     bool coincidencias;
     for(int i=0; i<tam; i++){
         string XX = favs[i].getNivelIngles();
-        if(favs[i].getNivelIngles()==_ingles){
+        nivel_actual=JerarquiaNivelIngles(XX);
+        if(nivel_actual>=nivel_ingresado){
             coincidencias = true;
             break;
         }
@@ -340,8 +361,9 @@ void FiltroIngles(){
         archFavoritos.vaciar();
 
         for(int i=0; i<tam; i++){
-
-            if(favs[i].getNivelIngles()==_ingles){
+            string XX = favs[i].getNivelIngles();
+            nivel_actual = JerarquiaNivelIngles(XX);
+            if(nivel_actual>=nivel_ingresado){
 
                 archFavoritos.guardar(favs[i]);
             }
@@ -736,7 +758,7 @@ void MenuBusqueda(Recruiter usuario,int &IdBusquedaActiva){
                     if(pos!=-1){
 
                         busqueda=archivoB.leer(pos);
-                        if(busqueda.getIDRecruiter()==usuario.getID()){
+                        if(busqueda.getIDRecruiter()==usuario.getID() && busqueda.getActiva()){
                             IdBusquedaActiva=busqueda.getID();
                             msj="Busqueda Activada correctamente";
                             Alerta(msj,true,true);

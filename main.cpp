@@ -4,6 +4,9 @@ using namespace std;
 #include "funciones.h"
 #include "rlutil.h"
 
+
+
+
 int main()
 {
     rlutil::setBackgroundColor(rlutil::BLUE);
@@ -41,7 +44,7 @@ int main()
 
     ///INICIO PROGRAMA
 
-    //PantallaInicio();
+    PantallaInicio();
     MenuPpal();
 
 
