@@ -83,11 +83,12 @@
 	<iostream>
 	"Fecha.h"
 
-1667518823 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
+1668035769 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\main.cpp
 	<iostream>
 	<cstring>
 	"funciones.h"
 	"rlutil.h"
+	"ArchivoCandidatos.h"
 
 1667061734 c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\rlutil.h
 	<iostream>
@@ -127,7 +128,7 @@
 	<iostream>
 	"ArchivoBusquedas.h"
 
-1667517416 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
+1668037965 source:c:\users\pczartech\desktop\utn\repositorios\labo 2\proyecto\prototipo\prototipo\funciones.cpp
 	<iostream>
 	"funciones.h"
 	"rlutil.h"

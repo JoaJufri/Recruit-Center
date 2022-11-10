@@ -4,8 +4,8 @@ using namespace std;
 #include "funciones.h"
 #include "rlutil.h"
 
-
-
+#include "ArchivoCandidatos.h"
+#include "ArchivoBusquedas.h"
 
 int main()
 {
@@ -24,14 +24,14 @@ int main()
     */
     /////////////////////////Carga Candidatos/////////////////////////////////////
 
-    /*
+
     ArchivoCandidatos archivo;
     Candidato candidato;
 
-
+/*
     char otro='S';
-    while(AltaCandidato() && toupper(otro)=='S'){
-
+    while(toupper(otro)=='S'){
+        AltaCandidato();
         int tam = archivo.getCantidad();
         candidato = archivo.leer(tam-1);
         candidato.Mostrar();
@@ -39,20 +39,26 @@ int main()
         cin>>otro;
     }
 
-    */
+*/
+
+    ///MOSTRAR CANDIDATOS CARGADOS HASTA AHORA
+
+    int tam = archivo.getCantidad();
+    cout<<"CARGADOS: "<<tam<<endl;
+    system("pause");
+    system("cls");
+    for(int i=0; i<tam; i++){
+        candidato=archivo.leer(i);
+        candidato.Mostrar();
+    }
+
 
 
     ///INICIO PROGRAMA
 
-    PantallaInicio();
-    MenuPpal();
+    //PantallaInicio();
+    //MenuPpal();
 
 
-
-    ///PRUEBA DE FILTROS
-    //FiltroStack();
-    //FiltroIngles();
-    //FiltroSeniority();
-    //FiltroExperiencia();
 }
 

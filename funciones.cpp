@@ -500,7 +500,7 @@ void FiltroExperiencia(){
 
     int exp=0;
     int anios;
-    string msj="Ingrese años de experiencia buscados:  ";
+    string msj="Ingrese anios de experiencia buscados:  ";
     Alerta(msj,false,true);
     rlutil::locate(ANCHO_VENTANA/2 + msj.length()/2 ,15);
     cin>>anios;
