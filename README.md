@@ -3,7 +3,6 @@ Proyecto de Sistema de gestión de Archivos con POO para Laboratorio de Computac
 ------
 
 ----------
-## Proyecto de gestión: RECRUIT CENTER
 Alumno :
 - Jufrida Joaquin, Legajo: 26917
 ---------
